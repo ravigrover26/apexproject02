@@ -1,0 +1,14 @@
+<template>
+  <lightning-card title="Child Slider Component">
+    <div class="slds-var-m-around_medium">
+      <lightning-slider
+        min="0"
+        max="100"
+        value={value}
+        step="1"
+        label="Slider"
+        onchange={handleChange}></lightning-slider>
+      <p>{value}</p>
+    </div>
+  </lightning-card>
+</template>

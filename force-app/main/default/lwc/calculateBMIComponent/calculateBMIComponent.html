@@ -1,0 +1,73 @@
+<template>
+  <lightning-card title="BMI Calculator" icon-name="utility:activity">
+    <div class="slds-card__body slds-card__body_inner">
+      <!-- Input Section -->
+      <div class="input-section slds-var-m-bottom_large">
+        <div class="slds-grid slds-grid_vertical slds-wrap">
+          <div class="slds-col slds-size_1-of-1 slds-var-m-bottom_medium">
+            <lightning-input
+              type="number"
+              label="Height"
+              value={height}
+              onchange={handleHeightChange}
+              placeholder="metres e.g. 1.68"
+              step="0.01"
+              min="0.1"
+              max="3.0"
+              data-id="height-input"
+              class="input-field"
+              required></lightning-input>
+          </div>
+          <div class="slds-col slds-size_1-of-1">
+            <lightning-input
+              type="number"
+              label="Weight"
+              value={weight}
+              onchange={handleWeightChange}
+              placeholder="kg e.g. 65"
+              step="0.1"
+              min="1"
+              max="1000"
+              data-id="weight-input"
+              class="input-field"
+              required></lightning-input>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="button-section slds-var-m-bottom_large">
+        <div class="slds-grid slds-gutters">
+          <div class="slds-col slds-no-flex">
+            <lightning-button
+              variant="brand"
+              label="Calculate"
+              onclick={calculateBMI}
+              class="slds-var-m-right_small calculate-button"
+              disabled={isCalculateDisabled}></lightning-button>
+          </div>
+          <div class="slds-col slds-no-flex">
+            <lightning-button variant="destructive" label="Reset" onclick={resetValues}></lightning-button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Section -->
+      <template if:true={hasBMIResult}>
+        <div class="results-section">
+          <div class="slds-text-align_center">
+            <div class="bmi-label slds-var-m-bottom_small">
+              <span class="your-bmi-text">Your BMI is</span>
+            </div>
+            <div class="bmi-number">{formattedBMI}</div>
+            <template if:true={status}>
+              <div class="slds-var-m-top_medium">
+                <lightning-badge label={status} variant={statusVariant}></lightning-badge>
+              </div>
+            </template>
+          </div>
+        </div>
+      </template>
+    </div>
+  </lightning-card>
+</template>

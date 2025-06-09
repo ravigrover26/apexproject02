@@ -1,0 +1,15 @@
+{
+  "overrides": [
+    {
+      "files": "**/*.html",
+      "options": {
+        "parser": "lwc",
+        "htmlWhitespaceSensitivity": "ignore",
+        "bracketSameLine": true,
+        "singleQuote": true,
+        "printWidth": 120,
+        "trailingComma": "none"
+      }
+    }
+  ]
+}

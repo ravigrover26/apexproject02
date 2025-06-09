@@ -1,0 +1,17 @@
+<template>
+  <lightning-card title="Parent Component">
+    <div class="slds-var-m-around_medium">
+      <p>Parent Component</p>
+      <template lwc:if={hasProducts}>
+        <template for:each={productsList} for:item="product">
+          <div key={product.id}>
+            <c-child-comp-lwc
+              product-id={product.id}
+              product-name={product.name}
+              product-price={product.price}></c-child-comp-lwc>
+          </div>
+        </template>
+      </template>
+    </div>
+  </lightning-card>
+</template>

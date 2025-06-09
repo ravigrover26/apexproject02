@@ -1,0 +1,24 @@
+<template>
+  <lightning-card title="Lifecycle Hooks Demo" icon-name="custom:custom1">
+    <div class="slds-var-m-around_medium">
+      <lightning-button
+        label="Toggle Content"
+        variant="neutral"
+        onclick={toggleContent}
+        class="slds-var-m-bottom_small"></lightning-button>
+      <template if:true={showContent}>
+        <div>
+          <p>
+            This is a demo of the lifecycle hooks in Lightning Web Components. userName: {userName}
+            <lightning-input label="User Name" value={userName} type="text"></lightning-input>
+            <lightning-button label="Change User Name" variant="brand" onclick={handleNameChange}></lightning-button>
+          </p>
+          <!-- Child component gets added/removed from DOM when toggled -->
+          <!-- <c-child-component></c-child-component> -->
+        </div>
+      </template>
+
+      <p>Check browser console to see lifecycle hooks being called</p>
+    </div>
+  </lightning-card>
+</template>

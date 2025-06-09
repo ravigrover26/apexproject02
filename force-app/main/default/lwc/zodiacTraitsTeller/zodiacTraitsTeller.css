@@ -1,0 +1,74 @@
+.zodiac-sign-display {
+  text-align: center;
+  padding: 1rem;
+}
+
+.zodiac-symbol {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: #1589ee;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.slds-box {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.zodiac-traits-container {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+lightning-card {
+  --slds-c-card-color-background: #ffffff;
+  --slds-c-card-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.slds-text-heading_medium {
+  color: #0176d3;
+  font-weight: 600;
+}
+
+.slds-text-heading_small {
+  color: #032d60;
+  font-weight: 500;
+}
+
+/* Enhance the form section */
+.slds-grid.slds-gutters {
+  margin-bottom: 1rem;
+}
+
+/* Style the button with hover effects */
+lightning-button {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Custom styling for the results section */
+.zodiac-results {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .zodiac-symbol {
+    font-size: 2.5rem;
+  }
+
+  .slds-col {
+    margin-bottom: 0.5rem;
+  }
+}

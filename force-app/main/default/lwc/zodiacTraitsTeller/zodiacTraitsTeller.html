@@ -1,0 +1,62 @@
+<template>
+  <lightning-card title="Zodiac Traits Teller" icon-name="custom:custom63">
+    <div class="slds-var-p-horizontal_medium">
+      <!-- Form Section -->
+      <div class="slds-grid slds-wrap slds-gutters">
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+          <lightning-input label="Name" name="name" value={name} onchange={handleNameChange} required></lightning-input>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+          <lightning-input
+            type="date"
+            label="Date of Birth"
+            name="dateOfBirth"
+            value={dateOfBirth}
+            onchange={handleDateChange}
+            required></lightning-input>
+        </div>
+      </div>
+
+      <div class="slds-var-m-top_medium">
+        <lightning-button
+          variant="brand"
+          label="Show My Zodiac Sign"
+          onclick={handleShowZodiacSign}
+          disabled={isButtonDisabled}
+          class="slds-var-m-left_x-small"></lightning-button>
+      </div>
+
+      <!-- Results Section -->
+      <template if:true={showResults}>
+        <div class="slds-var-m-top_large zodiac-results">
+          <div class="slds-box slds-theme_shade slds-var-m-bottom_medium">
+            <h3 class="slds-text-heading_medium slds-var-m-bottom_small">Hello {name}! 🌟</h3>
+            <div class="slds-grid slds-wrap">
+              <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+                <div class="zodiac-sign-display">
+                  <div class="zodiac-symbol">{zodiacResult.symbol}</div>
+                  <h4 class="slds-text-heading_small">{zodiacResult.sign}</h4>
+                  <p class="slds-text-body_small slds-text-color_weak">{zodiacResult.dateRange}</p>
+                </div>
+              </div>
+              <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-3">
+                <h4 class="slds-text-heading_small slds-var-m-bottom_small">Your Traits:</h4>
+                <p class="slds-text-body_regular">{zodiacResult.traits}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
+
+      <!-- Error Message -->
+      <template if:true={errorMessage}>
+        <div class="slds-var-m-top_medium">
+          <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+            <span class="slds-assistive-text">Error</span>
+            <h2>{errorMessage}</h2>
+          </div>
+        </div>
+      </template>
+    </div>
+  </lightning-card>
+</template>

@@ -1,0 +1,87 @@
+/* Container Styles */
+.input-section {
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e5e5;
+}
+
+.button-section {
+  padding: 1rem 0;
+}
+
+.results-section {
+  animation: fadeIn 0.3s ease-in;
+  padding: 2rem 0;
+}
+
+/* Input Field Styles */
+.input-field {
+  margin-bottom: 0.5rem;
+}
+
+/* Calculate Button Styles */
+.calculate-button {
+  background-color: #1976d2;
+  border-color: #1976d2;
+}
+
+/* BMI Result Styles */
+.your-bmi-text {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #333;
+}
+
+.bmi-number {
+  font-size: 4rem;
+  font-weight: 300;
+  color: #333;
+  margin: 1rem 0;
+}
+
+.bmi-label {
+  margin-bottom: 0.5rem;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bmi-number {
+    font-size: 3rem;
+  }
+
+  .your-bmi-text {
+    font-size: 1.25rem;
+  }
+}
+
+/* Card Enhancement */
+lightning-card {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Hover Effects */
+lightning-button:hover {
+  transform: translateY(-1px);
+  transition: transform 0.2s ease;
+}
+
+/* Performance Optimizations */
+* {
+  will-change: auto;
+}
+
+.results-section * {
+  will-change: transform, opacity;
+}

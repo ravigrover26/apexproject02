@@ -1,0 +1,11 @@
+<template>
+  <lightning-card title="Child Component">
+    <div class="slds-var-m-around_medium">
+      <p>Child Component</p>
+      <!-- <p>Product ID: {productId}</p> -->
+      <p>Product Name: {productName}</p>
+      <!-- <p>Product Price: {productPrice}</p> -->
+      <c-grand-child-comp-lwc product-id={productId} product-price={productPrice}></c-grand-child-comp-lwc>
+    </div>
+  </lightning-card>
+</template>

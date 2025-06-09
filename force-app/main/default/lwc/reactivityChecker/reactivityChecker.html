@@ -1,0 +1,9 @@
+<template>
+  <lightning-card title="Reactivity Checker Parent">
+    <div class="slds-var-p-around_medium">
+      <p>{userAddress}</p>
+      <lightning-button label="Update Address" variant="destructive" onclick={handleUpdateAddress}></lightning-button>
+      <c-reactivity-checker-child-lwc user-address={userAddress}></c-reactivity-checker-child-lwc>
+    </div>
+  </lightning-card>
+</template>

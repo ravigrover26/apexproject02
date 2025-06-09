@@ -1,0 +1,12 @@
+<template>
+  <lightning-card title="Two Way Data Binding">
+    <div class="slds-var-m-around_medium">
+      <lightning-input
+        label="Enter Course Subject"
+        type="text"
+        value={courseSubject}
+        onchange={changeHandler}></lightning-input>
+      <p>{courseName} is a course of subject {courseSubject}</p>
+    </div>
+  </lightning-card>
+</template>
