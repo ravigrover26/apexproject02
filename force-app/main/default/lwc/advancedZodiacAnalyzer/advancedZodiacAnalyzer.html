@@ -1,0 +1,219 @@
+<template>
+  <lightning-card title="Advanced Zodiac Analyzer" icon-name="custom:custom84">
+    <div class="slds-var-p-horizontal_medium">
+      
+      <!-- Form Section -->
+      <div class="slds-grid slds-wrap slds-gutters form-section">
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+          <lightning-input 
+            label="Full Name" 
+            name="name" 
+            value={name} 
+            onchange={handleNameChange} 
+            required
+            placeholder="Enter your full name">
+          </lightning-input>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+          <lightning-input
+            type="date"
+            label="Date of Birth"
+            name="dateOfBirth"
+            value={dateOfBirth}
+            onchange={handleDateChange}
+            required>
+          </lightning-input>
+        </div>
+      </div>
+
+      <!-- Action Button -->
+      <div class="slds-var-m-top_medium slds-align_absolute-center">
+        <lightning-button
+          variant="brand"
+          label="Analyze My Cosmic Profile"
+          onclick={handleAnalyze}
+          disabled={isButtonDisabled}
+          class="analyze-button">
+        </lightning-button>
+      </div>
+
+      <!-- Loading Spinner -->
+      <template if:true={isLoading}>
+        <div class="slds-var-m-top_large">
+          <lightning-spinner alternative-text="Analyzing your cosmic profile..." size="large"></lightning-spinner>
+          <p class="slds-text-align_center slds-var-m-top_small">Analyzing your cosmic profile...</p>
+        </div>
+      </template>
+
+      <!-- Results Section -->
+      <template if:true={showResults}>
+        <div class="slds-var-m-top_large results-container">
+          
+          <!-- Personalized Welcome Message -->
+          <div class="slds-box slds-theme_shade welcome-section">
+            <h2 class="slds-text-heading_medium slds-var-m-bottom_small">🌟 Your Cosmic Profile</h2>
+            <p class="slds-text-body_regular personalized-message">{analysisResult.personalizedMessage}</p>
+          </div>
+
+          <!-- Main Analysis Grid -->
+          <div class="slds-grid slds-wrap slds-gutters slds-var-m-top_medium">
+            
+            <!-- Western Zodiac Section -->
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+              <div class="slds-box analysis-card western-zodiac">
+                <h3 class="slds-text-heading_small card-title">
+                  <lightning-icon icon-name="utility:world" size="small" class="slds-var-m-right_x-small"></lightning-icon>
+                  Western Zodiac
+                </h3>
+                
+                <div class="slds-grid zodiac-display">
+                  <div class="slds-col slds-size_1-of-3 symbol-section">
+                    <div class="zodiac-symbol">{analysisResult.westernZodiac.symbol}</div>
+                    <h4 class="slds-text-heading_small sign-name">{analysisResult.westernZodiac.sign}</h4>
+                    <p class="slds-text-body_small date-range">{analysisResult.westernZodiac.dateRange}</p>
+                  </div>
+                  
+                  <div class="slds-col slds-size_2-of-3 details-section">
+                    <div class="detail-item">
+                      <span class="detail-label">Element:</span>
+                      <span class="detail-value element-{analysisResult.westernZodiac.element}">{analysisResult.westernZodiac.element}</span>
+                    </div>
+                    <div class="detail-item">
+                      <span class="detail-label">Ruling Planet:</span>
+                      <span class="detail-value">{analysisResult.westernZodiac.rulingPlanet}</span>
+                    </div>
+                    <div class="detail-item">
+                      <span class="detail-label">Lucky Numbers:</span>
+                      <span class="detail-value">{analysisResult.westernZodiac.luckyNumbers}</span>
+                    </div>
+                    <div class="detail-item">
+                      <span class="detail-label">Lucky Colors:</span>
+                      <span class="detail-value">{analysisResult.westernZodiac.luckyColors}</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="slds-var-m-top_small">
+                  <h5 class="slds-text-heading_small">Personality Traits:</h5>
+                  <p class="slds-text-body_small traits-text">{analysisResult.westernZodiac.traits}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chinese Zodiac Section -->
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+              <div class="slds-box analysis-card chinese-zodiac">
+                <h3 class="slds-text-heading_small card-title">
+                  <lightning-icon icon-name="utility:animal_and_nature" size="small" class="slds-var-m-right_x-small"></lightning-icon>
+                  Chinese Zodiac
+                </h3>
+                
+                <div class="chinese-zodiac-display">
+                  <h4 class="slds-text-heading_medium chinese-animal">{analysisResult.chineseZodiac.animal}</h4>
+                  <p class="slds-text-body_small chinese-traits">{analysisResult.chineseZodiac.traits}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Numerology Section -->
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+              <div class="slds-box analysis-card numerology">
+                <h3 class="slds-text-heading_small card-title">
+                  <lightning-icon icon-name="utility:number_input" size="small" class="slds-var-m-right_x-small"></lightning-icon>
+                  Numerology
+                </h3>
+                
+                <div class="numerology-grid">
+                  <div class="number-item">
+                    <span class="number-label">Life Path Number:</span>
+                    <span class="number-value life-path">{analysisResult.numerology.lifePathNumber}</span>
+                  </div>
+                  <div class="number-item">
+                    <span class="number-label">Name Number:</span>
+                    <span class="number-value name-number">{analysisResult.numerology.nameNumber}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Compatibility Section -->
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+              <div class="slds-box analysis-card compatibility">
+                <h3 class="slds-text-heading_small card-title">
+                  <lightning-icon icon-name="utility:heart" size="small" class="slds-var-m-right_x-small"></lightning-icon>
+                  Compatibility
+                </h3>
+                
+                <div class="compatibility-content">
+                  <div class="most-compatible">
+                    <span class="compatibility-label">Most Compatible:</span>
+                    <span class="compatibility-value highlight">{analysisResult.compatibility.mostCompatible}</span>
+                  </div>
+                  <div class="compatible-signs">
+                    <span class="compatibility-label">All Compatible Signs:</span>
+                    <div class="signs-list">
+                      <template for:each={analysisResult.compatibility.compatibleSigns} for:item="sign">
+                        <span key={sign} class="sign-tag">{sign}</span>
+                      </template>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Career Suggestions Section -->
+            <div class="slds-col slds-size_1-of-1">
+              <div class="slds-box analysis-card career">
+                <h3 class="slds-text-heading_small card-title">
+                  <lightning-icon icon-name="utility:work" size="small" class="slds-var-m-right_x-small"></lightning-icon>
+                  Career Suggestions
+                </h3>
+                
+                <div class="career-content">
+                  <div class="career-list">
+                    <template for:each={analysisResult.westernZodiac.careerSuggestions} for:item="career">
+                      <span key={career} class="career-tag">{career}</span>
+                    </template>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Famous People Section -->
+            <div class="slds-col slds-size_1-of-1">
+              <div class="slds-box analysis-card famous-people">
+                <h3 class="slds-text-heading_small card-title">
+                  <lightning-icon icon-name="utility:groups" size="small" class="slds-var-m-right_x-small"></lightning-icon>
+                  Famous People with Your Sign
+                </h3>
+                
+                <div class="famous-people-content">
+                  <div class="people-list">
+                    <template for:each={analysisResult.westernZodiac.famousPeople} for:item="person">
+                      <span key={person} class="person-tag">{person}</span>
+                    </template>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </template>
+
+      <!-- Error Message -->
+      <template if:true={errorMessage}>
+        <div class="slds-var-m-top_medium">
+          <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+            <span class="slds-assistive-text">Error</span>
+            <h2>
+              <lightning-icon icon-name="utility:error" size="x-small" class="slds-var-m-right_x-small"></lightning-icon>
+              {errorMessage}
+            </h2>
+          </div>
+        </div>
+      </template>
+
+    </div>
+  </lightning-card>
+</template>

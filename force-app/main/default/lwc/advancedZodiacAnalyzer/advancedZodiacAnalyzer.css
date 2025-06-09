@@ -1,0 +1,440 @@
+/* Main Container Styling */
+lightning-card {
+    --slds-c-card-color-background: #ffffff;
+    --slds-c-card-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.form-section {
+    background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 100%);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+/* Button Styling */
+.analyze-button {
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    background: linear-gradient(135deg, #1589ee 0%, #0c5aa6 100%);
+    border: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(21, 137, 238, 0.3);
+}
+
+.analyze-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(21, 137, 238, 0.4);
+}
+
+/* Results Container */
+.results-container {
+    animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Welcome Section */
+.welcome-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.25);
+}
+
+.welcome-section h2 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.personalized-message {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+/* Analysis Cards */
+.analysis-card {
+    border-radius: 12px;
+    padding: 1.5rem;
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid #e5e9f0;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.analysis-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card-title {
+    color: #2c5282;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Western Zodiac Styling */
+.western-zodiac {
+    border-left: 4px solid #667eea;
+}
+
+.zodiac-symbol {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sign-name {
+    text-align: center;
+    color: #2c5282;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.date-range {
+    text-align: center;
+    color: #718096;
+    font-style: italic;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0;
+}
+
+.detail-label {
+    font-weight: 500;
+    color: #4a5568;
+}
+
+.detail-value {
+    font-weight: 600;
+    color: #2d3748;
+}
+
+/* Element Colors */
+.element-Fire {
+    color: #e53e3e;
+    background: linear-gradient(135deg, #feb2b2 0%, #fc8181 100%);
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+}
+
+.element-Earth {
+    color: #38a169;
+    background: linear-gradient(135deg, #c6f6d5 0%, #9ae6b4 100%);
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+}
+
+.element-Air {
+    color: #3182ce;
+    background: linear-gradient(135deg, #bee3f8 0%, #90cdf4 100%);
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+}
+
+.element-Water {
+    color: #319795;
+    background: linear-gradient(135deg, #b2f5ea 0%, #81e6d9 100%);
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+}
+
+.traits-text {
+    line-height: 1.6;
+    color: #4a5568;
+    margin-top: 0.75rem;
+}
+
+/* Chinese Zodiac Styling */
+.chinese-zodiac {
+    border-left: 4px solid #e53e3e;
+}
+
+.chinese-animal {
+    text-align: center;
+    color: #c53030;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.chinese-traits {
+    text-align: center;
+    color: #4a5568;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+/* Numerology Styling */
+.numerology {
+    border-left: 4px solid #805ad5;
+}
+
+.numerology-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.number-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f7fafc;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.number-label {
+    font-weight: 500;
+    color: #4a5568;
+}
+
+.number-value {
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 50%;
+    color: white;
+    min-width: 3rem;
+    text-align: center;
+}
+
+.life-path {
+    background: linear-gradient(135deg, #9f7aea 0%, #805ad5 100%);
+}
+
+.name-number {
+    background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+}
+
+/* Compatibility Styling */
+.compatibility {
+    border-left: 4px solid #ed64a6;
+}
+
+.compatibility-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.most-compatible, .compatible-signs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.compatibility-label {
+    font-weight: 500;
+    color: #4a5568;
+}
+
+.compatibility-value.highlight {
+    font-weight: 700;
+    color: #d53f8c;
+    font-size: 1.25rem;
+}
+
+.signs-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.sign-tag {
+    background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
+    color: #c53030;
+    padding: 0.25rem 0.75rem;
+    border-radius: 16px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Career Styling */
+.career {
+    border-left: 4px solid #38a169;
+}
+
+.career-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.career-tag {
+    background: linear-gradient(135deg, #c6f6d5 0%, #9ae6b4 100%);
+    color: #22543d;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.career-tag:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(56, 161, 105, 0.3);
+}
+
+/* Famous People Styling */
+.famous-people {
+    border-left: 4px solid #3182ce;
+}
+
+.people-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.person-tag {
+    background: linear-gradient(135deg, #bee3f8 0%, #90cdf4 100%);
+    color: #2c5282;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.person-tag:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(49, 130, 206, 0.3);
+}
+
+/* Loading State */
+lightning-spinner {
+    --slds-c-spinner-color-foreground: #667eea;
+    --slds-c-spinner-color-background: rgba(102, 126, 234, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .zodiac-symbol {
+        font-size: 3rem;
+    }
+    
+    .chinese-animal {
+        font-size: 1.5rem;
+    }
+    
+    .form-section {
+        padding: 1rem;
+    }
+    
+    .welcome-section {
+        padding: 1.5rem;
+    }
+    
+    .welcome-section h2 {
+        font-size: 1.25rem;
+    }
+    
+    .analysis-card {
+        padding: 1rem;
+    }
+    
+    .detail-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    
+    .number-item {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    .most-compatible, .compatible-signs {
+        text-align: center;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .analysis-card {
+        background: #2d3748;
+        border-color: #4a5568;
+        color: #e2e8f0;
+    }
+    
+    .card-title {
+        color: #90cdf4;
+    }
+    
+    .detail-label {
+        color: #a0aec0;
+    }
+    
+    .detail-value {
+        color: #e2e8f0;
+    }
+    
+    .traits-text {
+        color: #a0aec0;
+    }
+    
+    .chinese-traits {
+        color: #a0aec0;
+    }
+    
+    .number-item {
+        background: #4a5568;
+    }
+    
+    .compatibility-label {
+        color: #a0aec0;
+    }
+}
+
+/* Print styles */
+@media print {
+    .analyze-button, 
+    lightning-spinner {
+        display: none;
+    }
+    
+    .analysis-card {
+        break-inside: avoid;
+        margin-bottom: 1rem;
+    }
+    
+    .results-container {
+        animation: none;
+    }
+}
